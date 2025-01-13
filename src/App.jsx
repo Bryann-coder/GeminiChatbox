@@ -5,19 +5,19 @@ import Contact from './component/Contact/Contact';
 import About from './component/About/About';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/firestore';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 
-firebase.initializeApp({
+// firebase.initializeApp({
   
-})
+// })
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
+// const auth = firebase.auth();
+// const firestore = firebase.firestore();
 
 // App Component
 const App = () => {
