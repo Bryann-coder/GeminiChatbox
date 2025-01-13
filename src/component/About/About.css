@@ -1,0 +1,58 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    color: #333;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  h1 {
+    color: #FF69B4; /* Rose */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    color: #8A2BE2; /* Violet pâle */
+    border-bottom: 2px solid #FF69B4;
+    padding-bottom: 0.5rem;
+  }
+  
+  .mission p {
+    line-height: 1.6;
+  }
+  
+  .how-it-works ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .how-it-works li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #FF69B4;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .feature {
+    background-color: #F0E6FF; /* Fond violet très pâle */
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #8A2BE2;
+  }
+  
+  .feature h3 {
+    color: #8A2BE2; /* Violet pâle */
+    margin-bottom: 0.5rem;
+  }

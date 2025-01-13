@@ -1,0 +1,113 @@
+/* Style du bouton principal */
+.bouton {
+    background: linear-gradient(45deg, #2196F3, #21CBF3) !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 10px 24px !important;
+    border-radius: 25px !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.bouton:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4) !important;
+}
+
+/* Style de la boîte de dialogue */
+.MuiDialog-paper {
+    border-radius: 20px !important;
+    padding: 20px !important;
+    min-width: 400px !important;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Style du titre */
+.MuiDialogTitle-root {
+    text-align: center !important;
+    color: #1a237e !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    padding-bottom: 20px !important;
+    border-bottom: 2px solid #e3f2fd !important;
+}
+
+/* Style du contenu */
+.pop-up-content {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 30px 0 !important;
+}
+
+/* Style du texte de score */
+.pop-up-text {
+    font-size: 48px !important;
+    font-weight: bold !important;
+    color: #2196F3 !important;
+    text-shadow: 2px 2px 4px rgba(33, 150, 243, 0.2) !important;
+    background: linear-gradient(45deg, #2196F3, #21CBF3) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: scoreReveal 0.5s ease-out !important;
+}
+
+/* Animation pour l'affichage du score */
+@keyframes scoreReveal {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Style des actions (boutons en bas) */
+.MuiDialogActions-root {
+    justify-content: center !important;
+    padding: 16px 24px !important;
+    border-top: 2px solid #e3f2fd !important;
+}
+
+/* Media queries pour la responsivité */
+@media screen and (max-width: 600px) {
+    .MuiDialog-paper {
+        min-width: 300px !important;
+        margin: 20px !important;
+    }
+
+    .pop-up-text {
+        font-size: 36px !important;
+    }
+
+    .MuiDialogTitle-root {
+        font-size: 20px !important;
+    }
+}
+
+/* Animation de transition */
+.MuiDialog-container .MuiDialog-paper {
+    animation: slideUp 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Effet de flou sur l'arrière-plan */
+.MuiBackdrop-root {
+    backdrop-filter: blur(5px) !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}

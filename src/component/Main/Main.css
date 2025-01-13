@@ -1,0 +1,373 @@
+.main {
+    flex: 1;
+    min-height: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.main .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.main .nav .nav-titre {
+    font-size: 30px;
+    font-weight: bold;
+    background: linear-gradient(to right, rgb(31, 31, 137), rgb(214, 92, 192));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.main .nav img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.main .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.main .container .greet {
+    margin: 50px 0px;
+    font-size: 90px;
+    color: gray;
+    font-weight: 300;
+    margin-bottom: 10px;
+
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    max-height: calc(100vh - 300px);
+    overflow-y:hidden;
+    scrollbar-width: none;
+
+}
+
+.search-box img {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.main .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.main .bottom .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: is rgb(114, 124, 220);
+    margin-bottom: 15px;
+    padding: 16px 20px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.main .bottom .search-box .icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.main .bottom .search-box .icon img {
+    margin-left: 12px;
+}
+
+.main .bottom .search-box input {
+    background: transparent;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: black;
+    padding-left: 20px;
+}
+
+.main .bottom .bottom-info div {
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.result {
+    padding: 0px 5%;
+    max-height: 1000px;
+    overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+.result img {
+    border-radius: 50%;
+    max-width: 40px;
+}
+
+.result .result-title {
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.result-data {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 50px;
+    max-height: 400px;
+}
+
+.loader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loader hr {
+    border-radius: 4px;
+    border: none;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+    background-size: 800px 50px;
+    height: 20px;
+    animation: loader 3s infinite linear;
+}
+
+@keyframes loader {
+    0% {
+        background-position: -800px 0px;
+    }
+    100% {
+        background-position: 800px 0px;
+    }
+}
+
+.result-data p {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* Media Queries */
+
+/* Pour les grands écrans */
+@media screen and (min-width: 1200px) {
+    .main .container {
+        max-width: 1100px;
+    }
+
+    .main .bottom {
+        max-width: 1100px;
+    }
+}
+
+/* Pour les tablettes */
+@media screen and (max-width: 768px) {
+    .main .container .greet {
+        font-size: 60px;
+        margin: 30px 0px;
+    }
+
+    .main .bottom .search-box {
+        padding: 20px 15px;
+    }
+
+    .main .bottom .search-box input {
+        font-size: 20px;
+    }
+
+    .result-data p {
+        font-size: 16px;
+    }
+}
+
+/* Pour les mobiles */
+@media screen and (max-width: 480px) {
+    .main .nav .nav-titre {
+        font-size: 24px;
+    }
+
+    .main .container .greet {
+        font-size: 40px;
+        margin: 20px 0px;
+    }
+
+    .main .bottom .search-box {
+        padding: 15px 10px;
+        border-radius: 25px;
+    }
+
+    .main .bottom .search-box input {
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .main .bottom .search-box .icon img {
+        height: 24px;
+        width: 24px;
+        margin-left: 8px;
+    }
+
+    .result {
+        padding: 0px 3%;
+    }
+
+    .result-title {
+        margin: 20px 0px;
+    }
+
+    .result img {
+        max-width: 30px;
+    }
+
+    .result-data {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .result-data p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+/* Pour les très petits écrans */
+@media screen and (max-width: 320px) {
+    .main .container .greet {
+        font-size: 32px;
+    }
+
+    .main .nav .nav-titre {
+        font-size: 20px;
+    }
+
+    .main .bottom .search-box .icon {
+        gap: 8px;
+    }
+
+    .main .bottom .search-box .icon img {
+        height: 20px;
+        width: 20px;
+        margin-left: 6px;
+    }
+}
+
+
+
+/* Container de l'historique de la conversation */
+.conversation-history {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    scrollbar-width: none;
+}
+
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+
+/* Style des titres pour chaque message */
+
+
+.conversation-history img {
+    border-radius: 50%;
+    width: 30px;
+}
+
+.conversation-history::-webkit-scrollbar {
+    display: none; /* Chrome, Safari - cacher la scrollbar */
+}
+
+
+.conversation{
+    display: flex;
+    animation: slideIn 0.3s ease-out forwards;
+    transform-origin: top;
+
+}
+
+
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .conversation-history .Medecin {
+    display: flex;
+    justify-content: flex-end; /* Aligner les messages à droite */
+    margin-bottom: 10px; /* Espacement entre les messages */
+  }
+  
+  .conversation-history .Medecin .message {
+    max-width: 60%; /* Limite la largeur pour un rendu lisible */
+    background-color: #d1e7ff; /* Couleur de fond pour distinguer les messages du médecin */
+    padding: 10px 15px; /* Espacement intérieur */
+    border-radius: 15px; /* Coins arrondis pour un effet visuel de bulle */
+    text-align: left; /* Texte aligné à gauche à l'intérieur de la bulle */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour un effet surélevé */
+    word-wrap: break-word; /* Gère les longues chaînes de texte */
+  }
+  
+
+  .conversation-history .Patient {
+    display: flex;
+    justify-content: flex-start; /* Aligner les messages à gauche */
+    margin-bottom: 10px; /* Espacement entre les messages */
+  }
+  
+  .conversation-history .Patient .message {
+    max-width: 60%; /* Limiter la largeur pour un rendu lisible */
+    background-color: rgba(214, 92, 192, 0.223); /* Couleur de fond pour les messages du patient */
+    padding: 10px 15px; /* Espacement intérieur */
+    border-radius: 15px; /* Coins arrondis pour une bulle de texte */
+    text-align: left; /* Texte aligné à gauche à l'intérieur de la bulle */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    word-wrap: break-word; /* Gérer les longues chaînes de texte */
+  }
+
+
+  .consultation-button{
+    background-color:rgba(232, 102, 208, 0.705);
+    border-radius: 20px;
+    height: 50px;
+    padding: 5px 20px;
+    border: none;
+    margin: 0px 10px;
+    font-size: 17px;
+  }
+  
+
+  
