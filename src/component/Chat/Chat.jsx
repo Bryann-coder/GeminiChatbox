@@ -1,21 +1,15 @@
-import React from 'react'
-import Main from '../Main/Main'
-import Sidebar from '../Sidebar/Sidebar'
-import ScorecontextProvider from '../ScoreContext/ScorecontextProvider'
+import React from 'react';
+import Main from '../Main/Main';
+import Sidebar from '../Sidebar/Sidebar';
+import ScorecontextProvider from '../../context/ScorecontextProvider';
 
 const Chat = () => {
   return (
-    <>
     <ScorecontextProvider>
-
-        {/* <Sidebar/> */}
-
-
-        <Main/>
-
+      <Sidebar />
+      <Main />
     </ScorecontextProvider>
-    </>
-  )
-}
+  );
+};
 
-export default Chat
+export default Chat;

@@ -1,72 +1,82 @@
-import React, { useContext, useState } from 'react'
-import './Sidebar.css'
-import { assets } from '../../assets/assets'
-import { Context } from '../../context/Context'
+import React, { useContext, useState } from 'react';
+import './Sidebar.css';
+import { assets } from '../../assets/assets';
+import { Context } from '../../context/Context';
+import { formatDate } from '../../utils/dateUtils';
 
 const Sidebar = () => {
+  const [extended, setExtended] = useState(false);
+  const { 
+    startNewSession, 
+    loadSession, 
+    userSessions, 
+    user, 
+    deleteSessionAndRefresh,
+    sessionId: currentSessionId
+  } = useContext(Context);
 
-    const [extended,Setextended] = useState(false)
-    const {onSent, prevPrompt, setRecentPrompt} = useContext(Context)
+  const handleNewChat = () => {
+    startNewSession();
+  };
 
-    const loadPrompt = async (prompt) => {
-        setRecentPrompt(prompt)
-        await onSent(prompt)
+  const handleLoadSession = (sessionId) => {
+    loadSession(sessionId);
+  };
+
+  const handleDeleteSession = async (e, sessionId) => {
+    e.stopPropagation();
+    try {
+      await deleteSessionAndRefresh(sessionId);
+      // Si la session supprimée est la session courante, créer une nouvelle session
+      if (sessionId === currentSessionId) {
+        await startNewSession();
+      }
+    } catch (error) {
+      console.error("Error deleting session:", error);
     }
+  };
+
+  if (!user) return null;
+
   return (
     <div className='sidebar'>
-        <div className="top">
+      <div className="top">
+        <img
+          className='menu'
+          onClick={() => setExtended(prev => !prev)}
+          src={assets.menu_icon}
+          alt="Menu"
+        />
 
-            <img className='menu' onClick={()=>Setextended(prev=>!prev)}  src={assets.menu_icon}  alt="" />
-            
-            <div className="new-chat">
-                <img src={assets.plus_icon}  alt="" />
-            {extended?<p>Nouveau chat</p>:null}
-            </div>
-
-            <p className="recent-title">Recent</p>
-
-            {extended?
-            
-            <div className='recent'>
-                
-                {prevPrompt.map((item,index)=>{
-                    return(
-                        <div onClick={()=>loadPrompt(item)} className="recent-entry">
-                            <img src={assets.message_icon}  alt="" />
-                            <p>{item.slice(0,8)}...</p>      
-                        </div>
-                    )
-                })}
-                
-            </div>
-            
-            :null} 
-            
-
+        <div className="new-chat" onClick={handleNewChat}>
+          <img src={assets.plus_icon} alt="Nouveau chat" />
+          {extended && <p>Nouveau chat</p>}
         </div>
-        
-        <div className="bottom">
 
-            <div className="bottom-item-recent-item">
-                <img src={assets.history_icon} id="icon" alt="" />
-                {extended?<p>Historique</p>:null}
-            </div>
-
-            <div className="bottom-item-recent-item">
-                <img src={assets.question_icon} id="icon" alt="" />
-                {extended?<p>Aide</p>:null}
-            </div>
-
-
-
-            <div className="bottom-item-recent-item">
-                <img src={assets.settings_icon} id="icon" alt="" />
-                {extended?<p>Parametre</p>:null}
-            </div>
-
-        </div>
+        {extended && (
+          <>
+            <p className="recent-title">Sessions récentes</p>
+            {userSessions.map((session) => (
+              <div key={session.id} className="recent-entry-container">
+                <div className="recent-entry" onClick={() => handleLoadSession(session.id)}>
+                  <img src={assets.history_icon} alt="Session" />
+                  <div className="session-details">
+                    <p>{formatDate(session.createdAt.toDate())}</p>
+                    {session.score && <span>Score: {session.score}</span>}
+                  </div>
+                  <div className="session-menu-icon">
+                    <div onClick={(e) => handleDeleteSession(e, session.id)}>
+                      <img src={assets.Trash} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

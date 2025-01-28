@@ -1,3 +1,4 @@
+/* AlertDialogSlide.css */
 /* Style du bouton principal */
 .bouton {
     background: linear-gradient(45deg, #2196F3, #21CBF3) !important;
@@ -36,14 +37,19 @@
 
 /* Style du contenu */
 .pop-up-content {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
     padding: 30px 0 !important;
 }
 
-/* Style du texte de score */
-.pop-up-text {
+/* Container principal pour l'évaluation */
+.evaluation-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+}
+
+/* Style du score global */
+.score-global {
     font-size: 48px !important;
     font-weight: bold !important;
     color: #2196F3 !important;
@@ -53,6 +59,51 @@
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     animation: scoreReveal 0.5s ease-out !important;
+}
+
+/* Grille des critères */
+.criteria-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    width: 100% !important;
+}
+
+/* Style des items de critères */
+.criteria-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 15px 20px !important;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.criteria-item:hover {
+    transform: translateX(5px) !important;
+}
+
+.criteria-label {
+    font-weight: 500 !important;
+    color: #1a237e !important;
+}
+
+.criteria-score {
+    font-weight: bold !important;
+    color: #2196F3 !important;
+    background: linear-gradient(45deg, #2196F3, #21CBF3) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Bouton de fermeture */
+.close-button {
+    color: #2196F3 !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
 }
 
 /* Animation pour l'affichage du score */
@@ -67,13 +118,6 @@
     }
 }
 
-/* Style des actions (boutons en bas) */
-.MuiDialogActions-root {
-    justify-content: center !important;
-    padding: 16px 24px !important;
-    border-top: 2px solid #e3f2fd !important;
-}
-
 /* Media queries pour la responsivité */
 @media screen and (max-width: 600px) {
     .MuiDialog-paper {
@@ -81,12 +125,16 @@
         margin: 20px !important;
     }
 
-    .pop-up-text {
+    .score-global {
         font-size: 36px !important;
     }
 
     .MuiDialogTitle-root {
         font-size: 20px !important;
+    }
+
+    .criteria-item {
+        padding: 12px 16px !important;
     }
 }
 
@@ -108,6 +156,6 @@
 
 /* Effet de flou sur l'arrière-plan */
 .MuiBackdrop-root {
-    backdrop-filter: blur(5px) !important;
+    /* backdrop-filter: blur(5px) !important; */
     background-color: rgba(0, 0, 0, 0.5) !important;
 }

@@ -17,6 +17,7 @@ import IA from './IA.png'
 import med from './medicin_patient.png'
 import med_icon from './medecin.png'
 import patient from './patient.png'
+import Trash from './Trash.svg'
 
 export const assets = {
     bulb_icon,
@@ -37,5 +38,6 @@ export const assets = {
     IA,
     med,
     med_icon,
-    patient
+    patient,
+    Trash
 }
